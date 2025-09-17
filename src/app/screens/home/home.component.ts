@@ -15,27 +15,21 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss',
   imports: [CommonModule,CarouselModule, ButtonModule, TagModule,Menubar, MovieHorizontalListComponent],
 })
-
-export class HomeComponent {
-
-  
+export class HomeComponent {  
   items: MenuItem[] | undefined;
 
   responsiveOptions: any[] | undefined;
   readonly nowPlayingQuery = useMovies().nowPlayingQuery;
-  readonly popularQuery = useMovies().popularQuery;
   readonly topRatedQuery = useMovies().topRatedQuery;
-  readonly upcomingQuery = useMovies().upcomingQuery;
 
   constructor(private router : Router){}
 
   get topRatedMovies(): any[] {
     const pages = this.topRatedQuery.data()?.pages ?? [];
-    console.log("Páginas recibidas:", pages);
-    
+    // console.log("Páginas recibidas:", pages);
     // Aplanar todas las películas de todas las páginas
     const allMovies = pages.flatMap(page => page.results || []);
-    console.log("Películas aplanadas:", allMovies.length);
+    // console.log("Películas aplanadas:", allMovies.length);
     
     return allMovies;
   }

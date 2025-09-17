@@ -1,4 +1,4 @@
-import { injectInfiniteQuery, injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery } from '@tanstack/angular-query-experimental';
 import { inject } from '@angular/core';
 import { Movies } from '../../core/movies/services/now-playing.service';
 

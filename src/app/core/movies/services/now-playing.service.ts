@@ -10,13 +10,8 @@ import { CastMapper } from "../infrastructure/mappers/cast.mapper";
     providedIn: "root",
 })
 export class Movies {
-    upcomingAction(): any {
-        throw new Error('Method not implemented.');
-    }
-    popularAction(): any {
-        throw new Error('Method not implemented.');
-    }
     private http = inject(HttpClient)
+    
     nowPlayingAction(): Promise<MovieDBMoviesResponse> {
         const url = `${environment.api.url}/now_playing`;
         const params = new HttpParams()

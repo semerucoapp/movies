@@ -18,7 +18,7 @@ export class MovieHorizontalListComponent {
   private isLoading = false;
 
   onMovieClick(id: number) {
-    this.movieClick.emit(id); // 👈 emitimos el ID al padre
+    this.movieClick.emit(id);
   }
 
   onScroll(event: Event) {
