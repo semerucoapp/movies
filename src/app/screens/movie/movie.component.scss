@@ -42,14 +42,15 @@
 
 .poster-container {
   height: 100%;
+  margin-top: 50px;
   width: 100%;
   z-index: 0;
 }
 
 .poster-image {
-  width: 100%;
+  width: 400px;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 

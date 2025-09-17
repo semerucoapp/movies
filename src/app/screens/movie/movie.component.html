@@ -2,22 +2,23 @@
 
 <div class="banner">
     <div class="movie-header">
-    <div class="gradient-overlay"></div>
+        <div class="gradient-overlay"></div>
 
-    <button class="back-button" onclick="history.back()">
-        <i class="icon">&#8592;</i>
-    </button>
+        <button class="back-button" onclick="history.back()">
+            <i class="icon">&#8592;</i>
+        </button>
 
-    <div class="poster-container">
-        <img class="poster-image" [src]="movieQuery.data()?.poster" [alt]="movieQuery.data()?.title" />
+        <div class="poster-container">
+            <img class="poster-image" [src]="movieQuery.data()?.poster" [alt]="movieQuery.data()?.title" />
+
+        </div>
+   
+
     </div>
-
-    <div class="movie-info">
-        <h3 class="original-title">{{ movieQuery.data()?.originalTitle }}</h3>
-        <h1 class="main-title">{{ movieQuery.data()?.title }}</h1>
+    <div class="">
+        <h3 class="original-title color-white">{{ movieQuery.data()?.originalTitle }}</h3>
+        <h1 class="main-title color-white">{{ movieQuery.data()?.title }}</h1>
     </div>
-    </div>
-
     <div class="movie-details">
     <div class="rating-genres">
         <span class="rating">{{ movieQuery.data()?.rating }}</span>
