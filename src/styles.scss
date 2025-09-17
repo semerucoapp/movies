@@ -114,6 +114,12 @@ $types: (
 .p-menubar-item-link{
         background:#0e0b0b !important;
 }
+.p-menubar-mobile .p-menubar-root-list{
+    padding: 0px !important;
+    gap: 0px !important;
+    border:0px !important;
+}
+
 .p-menubar li:hover{
  background: #0e0b0b !important;
  border: none !important;
