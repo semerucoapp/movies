@@ -7,8 +7,8 @@ export class MovieMapper{
             title: movie.title,
             description: movie.overview,
             releaseDate: new Date(movie.release_date),
-            poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-            backdrop: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`,
+            poster: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
+            backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
             rating: movie.vote_average
         }
     }
@@ -20,8 +20,8 @@ export class MovieMapper{
             title: movie.title,
             description: movie.overview,
             releaseDate: new Date(movie.release_date),
-            poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-            backdrop: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`,
+            poster: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
+            backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
             rating: movie.vote_average,
             budget: movie.budget,
             duration: movie.runtime,
