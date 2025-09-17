@@ -1,0 +1,31 @@
+<h1 *ngIf="movieQuery.isLoading()" class="color-white">Cargando...</h1>
+
+<div class="banner">
+    <div class="movie-header">
+    <div class="gradient-overlay"></div>
+
+    <button class="back-button" onclick="history.back()">
+        <i class="icon">&#8592;</i>
+    </button>
+
+    <div class="poster-container">
+        <img class="poster-image" [src]="movieQuery.data()?.poster" [alt]="movieQuery.data()?.title" />
+    </div>
+
+    <div class="movie-info">
+        <h3 class="original-title">{{ movieQuery.data()?.originalTitle }}</h3>
+        <h1 class="main-title">{{ movieQuery.data()?.title }}</h1>
+    </div>
+    </div>
+
+    <div class="movie-details">
+    <div class="rating-genres">
+        <span class="rating">{{ movieQuery.data()?.rating }}</span>
+        <span class="genres"> - {{ movieQuery.data()?.genres?.join(', ') }}</span>
+    </div>
+
+    <h2 class="section-title">Historia</h2>
+    <p class="description">- {{ movieQuery.data()?.description }}</p>
+    <p class="budget">- {{ currency(movieQuery.data()?.budget ?? 0) }}</p>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+    <div class="banner">
+        <h1 *ngIf="nowPlayingQuery.isLoading()">Cargando...</h1>
+        <div class="card mb-4">
+            <p-menubar [model]="items" />
+        </div>
+
+        <div *ngIf="nowPlayingQuery.data() as data">
+            <h2 class="">Películas en Cines ({{ data.results.length }})</h2>
+
+            <div class="card">
+                <p-carousel [value]="data.results" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+                    <ng-template let-movie #item>
+                        <div class="border border-surface rounded-border m-2 p-4">
+                            <div class="mb-4">
+                                <div class="relative mx-auto flex justify-center">
+                                    <img (click)="goMovie(movie.id)" [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" [alt]="movie.title" class="movie-poster" />
+                                </div>
+                            </div>
+                            <div class="mb-4 mt-4 fs-24 f-semibold color-white flex justify-center">{{ movie.title }}</div>
+                        </div>
+                    </ng-template>
+                </p-carousel>   
+            </div> 
+        </div>
+
+        <app-movie-horizontal-list
+            title="Mejor Calificadas"
+            [movies]="topRatedMovies"
+            (movieClick)="goMovie($event)" 
+            [loadNextPage]="loadNextPage"
+            [hasNextPage]="topRatedQuery.hasNextPage()"
+            [isFetchingNextPage]="topRatedQuery.isFetchingNextPage()"
+        />
+
+
+        <div *ngIf="nowPlayingQuery.isError()">
+        <p style="color: red;">Error al cargar películas</p>
+        </div>
+    </div>
+
+

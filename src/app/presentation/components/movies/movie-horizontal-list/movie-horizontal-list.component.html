@@ -1,0 +1,12 @@
+<h2 *ngIf="title" class="color-white">{{ title }}</h2>
+<section class="movie-horizontal-list" (scroll)="onScroll($event)">
+  <div class="movie-row">
+    <ng-container *ngFor="let movie of movies">
+      <div class="movie-card">
+        <img  (click)="onMovieClick(movie.id)" [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" [alt]="movie.title" class="movie-poster" />
+
+        <p class="color-white fs-20 f-bold">{{ movie.title }}</p>
+      </div>
+    </ng-container>
+  </div>
+</section>
