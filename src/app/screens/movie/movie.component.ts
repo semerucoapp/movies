@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { useMovie } from '../../presentation/hooks/useMovie';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-movie',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './movie.component.html',
   styleUrl: './movie.component.scss'
 })

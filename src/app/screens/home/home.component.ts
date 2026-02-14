@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { useMovies } from '../../presentation/hooks/useMovies';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [CommonModule,CarouselModule, ButtonModule, TagModule,Menubar, MovieHorizontalListComponent],
+  imports: [CarouselModule, ButtonModule, TagModule, Menubar, MovieHorizontalListComponent],
 })
 export class HomeComponent {  
   items: MenuItem[] | undefined;

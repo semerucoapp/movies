@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-movie-horizontal-list',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './movie-horizontal-list.component.html',
   styleUrl: './movie-horizontal-list.component.scss'
 })
