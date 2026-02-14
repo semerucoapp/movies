@@ -1,1 +1,145 @@
-<p>register works!</p>
+<div class="register-container">
+  <div class="register-card">
+    
+    <div class="text-center mb-5">
+      <h1 class="gradient-title">ÚNETE AL GYM</h1>
+      <p class="text-secondary">Transforma tu cuerpo, transforma tu vida</p>
+    </div>
+
+    @if (registrationSuccess()) {
+      <div class="success-message">
+        <i class="pi pi-check-circle"></i>
+        <h3>¡Bienvenido!</h3>
+        <p>Tu membresía está lista. ¡A entrenar!</p>
+        <button pButton routerLink="/login" label="Iniciar sesión" class="p-button-outlined register-button mt-3"></button>
+      </div>
+    } @else {
+      <form (submit)="onSubmit($event)" novalidate>
+        
+        <div class="form-row">
+          <div class="form-col field">
+            <label><i class="pi pi-user"></i>Nombre</label>
+            @let nameErr = errors().name;
+            @let nameTouched = touchedFields()['name'];
+            <input
+              pInputText
+              [ngModel]="userData().name"
+              (ngModelChange)="updateField('name', $event)"
+              (blur)="markTouched('name')"
+              name="name"
+              class="custom-input"
+              [class.ng-invalid]="nameTouched && nameErr"
+              placeholder="Juan Pérez"
+            />
+            @if (nameTouched && nameErr) {
+              <div class="error-message">
+                <small><i class="pi pi-exclamation-triangle"></i>{{ nameErr }}</small>
+              </div>
+            }
+          </div>
+
+          <div class="form-col field">
+            <label><i class="pi pi-envelope"></i>Email</label>
+            @let emailErr = errors().email;
+            @let emailTouched = touchedFields()['email'];
+            <input
+              pInputText
+              type="email"
+              [ngModel]="userData().email"
+              (ngModelChange)="updateField('email', $event)"
+              (blur)="markTouched('email')"
+              name="email"
+              class="custom-input"
+              [class.ng-invalid]="emailTouched && emailErr"
+              placeholder="ejemplo@correo.com"
+            />
+            @if (emailTouched && emailErr) {
+              <div class="error-message">
+                <small><i class="pi pi-exclamation-triangle"></i>{{ emailErr }}</small>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col field">
+            <label><i class="pi pi-lock"></i>Contraseña</label>
+            @let passErr = errors().password;
+            @let passTouched = touchedFields()['password'];
+            <p-password
+              [ngModel]="userData().password"
+              (ngModelChange)="updateField('password', $event)"
+              (onBlur)="markTouched('password')"
+              name="password"
+              [feedback]="true"
+              [toggleMask]="true"
+              promptLabel="Crea una contraseña"
+              inputStyleClass="custom-input"
+              styleClass="w-full"
+              [class.ng-invalid]="passTouched && passErr"
+            />
+            @if (passTouched && passErr) {
+              <div class="error-message">
+                <small><i class="pi pi-exclamation-triangle"></i>{{ passErr }}</small>
+              </div>
+            }
+          </div>
+
+          <div class="form-col field">
+            <label><i class="pi pi-lock"></i>Confirmar</label>
+            @let matchErr = errors().mismatch;
+            @let confirmTouched = touchedFields()['confirmPassword'];
+            <input
+              pInputText
+              type="password"
+              [ngModel]="userData().confirmPassword"
+              (ngModelChange)="updateField('confirmPassword', $event)"
+              (blur)="markTouched('confirmPassword')"
+              name="confirmPassword"
+              class="custom-input"
+              [class.ng-invalid]="confirmTouched && matchErr"
+              placeholder="Repite"
+            />
+            @if (confirmTouched && matchErr) {
+              <div class="error-message">
+                <small><i class="pi pi-exclamation-triangle"></i>{{ matchErr }}</small>
+              </div>
+            }
+          </div>
+        </div>
+
+        @if (errorMessage()) {
+          <p-message severity="error" [text]="errorMessage()" styleClass="w-full mb-3" />
+        }
+
+        <button
+          pButton
+          type="submit"
+          [disabled]="isSubmitting()"
+          class="register-button"
+        >
+          @if (isSubmitting()) {
+            <i class="pi pi-spin pi-spinner mr-2"></i>Procesando...
+          } @else {
+            <i class="pi pi-dumbbell mr-2"></i>Registrarse
+          }
+        </button>
+      </form>
+
+      <p-divider align="center" styleClass="my-4">
+        <span class="text-secondary">o regístrate con</span>
+      </p-divider>
+
+      <div class="social-buttons">
+        <button pButton type="button" class="p-button-outlined social-btn" icon="pi pi-google"></button>
+        <button pButton type="button" class="p-button-outlined social-btn" icon="pi pi-facebook"></button>
+        <button pButton type="button" class="p-button-outlined social-btn" icon="pi pi-apple"></button>
+      </div>
+
+      <div class="text-center mt-4">
+        <span class="text-secondary">¿Ya tienes cuenta?</span>
+        <a routerLink="/login" class="login-link ml-2">Inicia sesión</a>
+      </div>
+    }
+  </div>
+</div>

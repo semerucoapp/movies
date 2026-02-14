@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [CarouselModule, ButtonModule, TagModule, Menubar, MovieHorizontalListComponent],
+  imports: [Menubar, CarouselModule, ButtonModule, TagModule, MovieHorizontalListComponent]
 })
 export class HomeComponent {  
   items: MenuItem[] | undefined;
